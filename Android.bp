@@ -1,0 +1,81 @@
+// Copyright (C) 2024 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package {
+    default_applicable_licenses: ["external_qdl_license"],
+}
+
+license {
+    name: "external_qdl_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-BSD",
+    ],
+    license_text: [
+        "LICENSE",
+    ],
+}
+
+cc_defaults {
+    name: "qdl_defaults",
+    cflags: [
+        "-Wall",
+        "-Wno-gnu-pointer-arith",
+    ],
+    shared_libs: [
+        "libusb",
+        "libxml2",
+    ],
+    include_dirs: [
+        "external/libusb/include/libusb",
+    ],
+}
+
+cc_binary {
+    name: "qdl",
+    defaults: ["qdl_defaults"],
+    srcs: [
+        "firehose.c",
+        "qdl.c",
+        "sahara.c",
+        "util.c",
+        "patch.c",
+        "program.c",
+        "read.c",
+        "ufs.c",
+        "usb.c",
+    ],
+}
+
+cc_binary {
+    name: "qdl-ramdump",
+    defaults: ["qdl_defaults"],
+    srcs: [
+        "ramdump.c",
+        "sahara.c",
+        "util.c",
+        "usb.c",
+    ],
+}
+
+// The original name of this binary upstream is just 'ks'.
+cc_binary {
+    name: "qdl-ks",
+    defaults: ["qdl_defaults"],
+    srcs: [
+        "ks.c",
+        "sahara.c",
+        "util.c",
+    ],
+}
