@@ -1,0 +1,17 @@
+name: "qdl"
+description:
+    "Qualcomm Downloader. This tool communicates with USB devices of id "
+    "05c6:9008 to upload a flash loader and use this to flash images. "
+
+third_party {
+homepage: "https://github.com/linux-msm/qdl"
+  identifier {
+    type: "Git"
+    value: "https://github.com/linux-msm/qdl.git"
+    primary_source: true
+    version: "v2.1"
+  }
+  version: "v2.1"
+  last_upgrade_date { year: 2025 month: 3 day: 10 }
+  license_type: NOTICE
+}
