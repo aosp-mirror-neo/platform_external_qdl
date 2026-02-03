@@ -12,7 +12,7 @@ third_party {
   identifier {
     type: "Git"
     value: "https://github.com/linux-msm/qdl.git"
-    version: "4ae228d30e14ae0c770e38d8597b1f5dee42f763"
+    version: "ad13228e6a591a82e7fb1a1f2459bbe15bc012b2"
     closest_version: "v2.1"
     primary_source: true
   }
